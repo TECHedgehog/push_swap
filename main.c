@@ -6,7 +6,7 @@
 /*   By: ellaca-f <ericllaca@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 20:23:04 by ellaca-f          #+#    #+#             */
-/*   Updated: 2021/06/20 18:03:08 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:52:29 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,10 @@ int	main(int argc, char **argv)
 	moves = newlist("START");
 	init(a, b, argc, argv);
 	// print_stacks(a, b, argc);
-	quicksort(a, a->size, moves);
+	if (argc <= 4)
+		three_sort(a, moves);
+	else
+		quicksort(a, a->size, moves);
 	// three_sort(a, moves);
 	// print_stacks(a, b, argc);
 	print_moves(&moves);
