@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 18:00:37 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/02/25 15:07:43 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/02/25 16:21:39 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int	low(t_stack *s, int l, int size)
 {
 	if (s->stack[size] < l && size)
-		l = s->stack[i];
+		l = s->stack[size];
 	if (!size)
 		return (l);
 	return (low(s, l, --size));
@@ -72,7 +72,6 @@ int	stacklen(t_stack *s, int end)
 int	find_low(t_stack *s, int l)
 {
 	int	i;
-	int	l;
 
 	i = 1;
 	while (s->stack[i] != l)

@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:57:02 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/02/25 15:44:11 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/02/25 16:21:12 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	pre_sort(t_stack *sorted)
 		j = 0;
 	}
 	sorted->top = sorted->stack[1];
-	sorted->end = sorted->stack[sorted->size];
+	sorted->end = sorted->stack[sorted->size - 1];
 }
 
 /**
