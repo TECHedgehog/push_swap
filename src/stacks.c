@@ -6,23 +6,22 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:57:02 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/02/25 16:21:12 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/03/05 00:26:09 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "ultimate_libft/ultra_utils.h"
 
 /**
  * Initialaizes two main stacks("a" & "b"). "argc" is used to know
  * the size of the stack. "argv" is used along with ft_atoi to copy
  * values passed in console to the stack(int[]).
  **/
-void	init(t_stack *a, t_stack *b, int argc, char **argv)
+int	init(t_stack *a, t_stack *b, int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = 0;
 	a->size = argc;
 	b->size = 1;
 	a->top = 1;
@@ -33,16 +32,18 @@ void	init(t_stack *a, t_stack *b, int argc, char **argv)
 	b->name = 'b';
 	a->stack = malloc((argc + 1) * sizeof(int));
 	b->stack = malloc((argc + 1) * sizeof(int));
-	while (i < argc)
+	if (!a->stack || !b->stack)
+		return (-1);
+	while (i++ < argc - 1)
 	{
 		a->stack[i] = ft_atoi(argv[i]);
 		b->stack[i] = 0;
-		i++;
 	}
 	a->stack[i] = 0;
 	b->stack[i] = 0;
 	a->opp = b;
 	b->opp = a;
+	return (0);
 }
 
 /**
@@ -106,18 +107,12 @@ int	copy_stack(t_stack *source, t_stack *dest)
 	return (0);
 }
 
-/**
- * Compares two stacks and returns 1 if they are equal.
- * Returns 0 if different. I use it to check with "sorted" stack if the
- * result("s") of push_swap algo is correct.
- **/
-int	is_sorted(t_stack *s, t_stack *sorted)
+void	free_stacks(t_stack *a, t_stack *b, t_stack *sorted)
 {
-	int		i;
-
-	i = 0;
-	while (i++ < sorted->size)
-		if (s->stack[i] != sorted->stack[i])
-			return (0);
-	return (1);
+	free(a->stack);
+	free(b->stack);
+	free(sorted->stack);
+	free(a);
+	free(b);
+	free(sorted);
 }

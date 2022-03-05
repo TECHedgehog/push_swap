@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 18:00:37 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/02/25 16:21:39 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/03/03 20:43:46 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	median(t_stack *s, int l, int size)
 	int	j;
 
 	j = 1;
+	i = -1;
 	while (j < (size + 1) / 2)
 	{
 		i = s->top;
@@ -77,4 +78,11 @@ int	find_low(t_stack *s, int l)
 	while (s->stack[i] != l)
 		i++;
 	return (i);
+}
+
+int	free_all(t_moves *m, t_stack *a, t_stack *b, t_stack *s)
+{
+	free_list(m);
+	free_stacks(a, b, s);
+	return (0);
 }
