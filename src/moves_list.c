@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 15:16:59 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/03 20:34:59 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:05:44 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,18 @@ unsigned int	move_count(t_moves *start)
 void	print_moves(t_moves **start)
 {
 	t_moves	*aux;
+	int		count;
 
 	aux = *start;
 	aux = aux->next;
+	count = 0;
 	while (aux)
 	{
 		printf("%s\n", aux->move);
 		aux = aux->next;
+		count++;
 	}
+	printf("%d\n", count);
 }
 
 void	free_list(t_moves *moves)

@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 22:11:03 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/03 20:51:40 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:48:08 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_moves
 void			print_stacks(t_stack *a, t_stack *b, int argc);
 void			print_stacks_info(t_stack *a, t_stack *b, t_stack *sorted);
 
-int				parse_stack(t_stack *a, t_stack *sorted);
+int				parse_stack(t_stack *a, t_stack *sorted, t_moves *moves);
 int				init(t_stack *a, t_stack *b, int argc, char **argv);
 void			pre_sort(t_stack *sorted);
 
@@ -54,8 +54,7 @@ int				swap(t_stack *s, t_moves *moves);
 int				rev_rot(t_stack *s, t_moves *moves, char c);
 int				rot(t_stack *s, t_moves *moves, char c);
 
-int				quicksort(t_stack *s, int size, t_moves *moves);
-int				three_sort(t_stack *s, t_moves *moves);
+void			quarters(t_stack *a, t_stack *s, t_moves *moves);
 
 t_moves			*newlist(const char *move);
 int				add_move(t_moves **start, t_moves *new);

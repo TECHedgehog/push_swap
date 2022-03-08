@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:23:42 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/05 00:25:47 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/03/07 16:49:41 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,30 @@ int	is_sorted(t_stack *s, t_stack *sorted)
 	return (1);
 }
 
-int	parse_stack(t_stack *a, t_stack *sorted)
+int	is_duplicated(t_stack *s)
 {
-	(void)a;
-	(void)sorted;
-	// int	quarters[4];
-	// int	eight[8];
-	// int	q;
-	// int	e;
-	// int	i;
+	int	i;
 
-	// if (!a || a->size <= 1 || is_sorted(a, sorted))
-	// 	return (-1);
-	// if (a->size > 5 && a->size < 500)
-	// {
-	// 	quarter = a->size / 4;
-	// }
+	i = 2;
+	while (i < s->size)
+	{
+		if (s->stack[i] == s->stack[i - 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	parse_stack(t_stack *a, t_stack *sorted, t_moves *moves)
+{
+	if (!a || a->size <= 1)
+		return (-1);
+	if (copy_stack(a, sorted) == -1)
+		return (-1);
+	pre_sort(sorted);
+	if (is_sorted(a, sorted) || is_duplicated(sorted))
+		return (-1);
+	if (a->size > 5 && a->size < 500)
+		quarters(a, sorted, moves);
 	return (1);
 }
