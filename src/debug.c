@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 13:22:17 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/02/25 16:18:07 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:15:47 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_stacks_info(t_stack *a, t_stack *b, t_stack *sorted)
 	i = 1;
 	dprintf(2, "----a----  |  ----b----  |  ---sorted---\n");
 	dprintf(2, "|       |  |  |       |  |  |          |\n");
-	while (i < sorted->size)
+	while (i < sorted->size + 1)
 	{
 		dprintf(2, "|%7d|  |  |%7d|  |  |%10d|\n", a->stack[i], b->stack[i], sorted->stack[i]);
 		i++;

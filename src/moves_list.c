@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 15:16:59 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/07 17:05:44 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 18:56:21 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	print_moves(t_moves **start)
 		aux = aux->next;
 		count++;
 	}
-	printf("%d\n", count);
+	// printf("%d\n", count);
 }
 
 void	free_list(t_moves *moves)

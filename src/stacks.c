@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:57:02 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/05 00:26:09 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 13:15:10 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	init(t_stack *a, t_stack *b, int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	a->size = argc;
 	b->size = 1;
 	a->top = 1;
@@ -34,10 +34,10 @@ int	init(t_stack *a, t_stack *b, int argc, char **argv)
 	b->stack = malloc((argc + 1) * sizeof(int));
 	if (!a->stack || !b->stack)
 		return (-1);
-	while (i++ < argc - 1)
+	while (i < argc)
 	{
 		a->stack[i] = ft_atoi(argv[i]);
-		b->stack[i] = 0;
+		b->stack[i++] = 0;
 	}
 	a->stack[i] = 0;
 	b->stack[i] = 0;
@@ -61,9 +61,9 @@ void	pre_sort(t_stack *sorted)
 	i = 0;
 	j = 0;
 	aux = 0;
-	while (++i < sorted->size)
+	while (++i < (sorted->size + 1))
 	{
-		while (++j < sorted->size - 1)
+		while (++j < sorted->size)
 		{
 			if (sorted->stack[j] > sorted->stack[j + 1])
 			{
@@ -75,7 +75,7 @@ void	pre_sort(t_stack *sorted)
 		j = 0;
 	}
 	sorted->top = sorted->stack[1];
-	sorted->end = sorted->stack[sorted->size - 1];
+	sorted->end = sorted->stack[sorted->size];
 }
 
 /**
@@ -95,12 +95,12 @@ int	copy_stack(t_stack *source, t_stack *dest)
 	opp = source->opp;
 	dest->name = 's';
 	dest->opp = NULL;
-	dest->size = source->size;
+	dest->size = source->size - 1;
 	dest->sorted = NULL;
 	dest->stack = malloc((dest->size + 1) * sizeof(int));
 	if (!dest->stack)
 		return (-1);
-	while (++i < dest->size)
+	while (++i < (dest->size + 1))
 		dest->stack[i] = source->stack[i];
 	source->sorted = dest;
 	opp->sorted = dest;
