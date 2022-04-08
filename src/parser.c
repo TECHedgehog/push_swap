@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:23:42 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 21:14:14 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 22:23:29 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ int	parse_stack(t_stack *a, t_stack *sorted, t_moves *moves)
 	if (copy_stack(a, sorted) == -1)
 		return (-1);
 	pre_sort(sorted);
-	print_stacks_info(a, a->opp, sorted);
 	if (is_sorted(a, sorted) || is_duplicated(sorted))
 		return (-1);
 	if (a->size > 5 && a->size < 500)
-		quarters(a, sorted, moves);
+		quarters_init(a, sorted, moves);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 22:11:03 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/07 16:48:08 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/08 22:21:38 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,20 @@ int				push(t_stack *s, t_moves *moves);
 int				swap(t_stack *s, t_moves *moves);
 int				rev_rot(t_stack *s, t_moves *moves, char c);
 int				rot(t_stack *s, t_moves *moves, char c);
+void			push_n_rot(t_stack *s, t_moves *moves, int mode);
+void			rev_rot_n_push_opp(t_stack *s, t_moves *moves, int mode);
 
-void			quarters(t_stack *a, t_stack *s, t_moves *moves);
+void			quarters(t_stack *a, t_stack *b, t_moves *moves, int q);
+void			quarters_init(t_stack *a, t_stack *s, t_moves *moves);
+void			find_limits(t_stack *b, int *lim);
+int				if_uneven(t_stack *s, int q, int *quarters);
+int				*get_quarters(t_stack *s, int q);
 
 t_moves			*newlist(const char *move);
 int				add_move(t_moves **start, t_moves *new);
 unsigned int	move_count(t_moves *start);
 void			print_moves(t_moves **start);
+int				add_moves_new(t_moves *new, char *tmp, int count);
 
 int				free_all(t_moves *m, t_stack *a, t_stack *b, t_stack *s);
 void			free_list(t_moves *moves);
