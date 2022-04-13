@@ -6,7 +6,7 @@
 #    By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 18:46:52 by ellaca-f          #+#    #+#              #
-#    Updated: 2022/03/08 19:53:36 by ellaca-f         ###   ########.fr        #
+#    Updated: 2022/04/10 11:15:36 by ellaca-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ LFLAGS := -fsanitize=address
 ASAND_OPT := ASAN_OPTIONS=abort_on_error=1
 ASAN_OPT := ASAN_OPTIONS=detect_leaks=1
 
-LIBFT_DIR := ./ultimate_libft
-LIBFT := libultra.a
+LIBFT_DIR := ./Libft
+LIBFT := libft.a
 
 BUILD_DIR := ./build
 
@@ -35,7 +35,7 @@ HDDIRS := -I $(INC_DIR)
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-$(NAME): $(OBJS) $(LIBFT)
+$(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(HDDIRS) $(LIBFT) -o $(NAME)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
@@ -46,7 +46,8 @@ $(LIBFT):
 	@echo "\n--------Setting up LIBFT---------------------\n"
 	@make -C $(LIBFT_DIR)
 	@echo "\n--------Copying LIBFT lib to main dir--------\n"
-	@cp $(LIBFT_DIR)/$(LIBFT) .
+	@mv $(LIBFT_DIR)/$(LIBFT) .
+	@cp $(LIBFT_DIR)/libft.h $(INC_DIR)
 	@echo "--------LIBFT done---------------------------\n"
 
 all: $(NAME)
@@ -55,7 +56,7 @@ clean:
 	@$(RM) $(BUILD_DIR)
 
 fclean: clean
-	@$(RM) $(LIBFT) $(LIBFT_DIR)/*.o $(NAME)
+	@$(RM) $(LIBFT) $(LIBFT_DIR)/*.o $(NAME) $(INC_DIR)/libft.h
 
 re: fclean all
 

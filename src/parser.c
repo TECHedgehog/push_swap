@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:23:42 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 22:23:29 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/10 21:07:23 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	is_duplicated(t_stack *s)
 
 int	parse_stack(t_stack *a, t_stack *sorted, t_moves *moves)
 {
+	if (error_manager(a ,sorted) == -1)
+		return (print_error(free_all(moves, a, a->opp, sorted)));
 	if (!a || a->size <= 1)
 		return (-1);
 	if (copy_stack(a, sorted) == -1)
@@ -51,7 +53,17 @@ int	parse_stack(t_stack *a, t_stack *sorted, t_moves *moves)
 	pre_sort(sorted);
 	if (is_sorted(a, sorted) || is_duplicated(sorted))
 		return (-1);
-	if (a->size > 5 && a->size < 500)
+	if (a->size - 1 == 2)
+		swap(a, moves);
+	else if (a->size - 1 == 3)
+		three_sort(a, moves);
+	else if (a->size - 1 == 4)
+		four_sort(a, moves);
+	else if (a->size - 1 == 5)
+		five_sort(a, moves);
+	else if (a->size - 1 > 5 && a->size - 1 < 500)
 		quarters_init(a, sorted, moves);
+	else
+		eights_init(a, sorted, moves);
 	return (1);
 }

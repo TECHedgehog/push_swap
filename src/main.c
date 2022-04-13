@@ -6,7 +6,7 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:01:59 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 22:23:02 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/10 21:11:04 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ int	main(int argc, char **argv)
 	b = malloc(sizeof(t_stack));
 	sorted = malloc(sizeof(t_stack));
 	moves = newlist("START");
+	if (error_manager(argc, argv) == -1)
+		return (print_error(free_all(moves, a, b, sorted)));
 	if (init(a, b, argc, argv) == -1)
 		return (free_all(moves, a, b, sorted));
 	if (parse_stack(a, sorted, moves) == -1)

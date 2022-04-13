@@ -6,13 +6,13 @@
 /*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 22:11:03 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 22:21:38 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/10 11:06:16 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../ultimate_libft/ultra_utils.h"
+# include "libft.h"
 # include <unistd.h>
 # include <stdio.h>
 
@@ -56,11 +56,20 @@ int				rot(t_stack *s, t_moves *moves, char c);
 void			push_n_rot(t_stack *s, t_moves *moves, int mode);
 void			rev_rot_n_push_opp(t_stack *s, t_moves *moves, int mode);
 
+int				three_sort(t_stack *s, t_moves *moves);
+int				four_sort(t_stack *a, t_moves *moves);
+int				five_sort(t_stack *a, t_moves *moves);
+
 void			quarters(t_stack *a, t_stack *b, t_moves *moves, int q);
 void			quarters_init(t_stack *a, t_stack *s, t_moves *moves);
 void			find_limits(t_stack *b, int *lim);
 int				if_uneven(t_stack *s, int q, int *quarters);
 int				*get_quarters(t_stack *s, int q);
+
+void			eights(t_stack *a, t_stack *b, t_moves *moves, int e);
+void			eights_init(t_stack *a, t_stack *s, t_moves *moves);
+int				if_uneven_e(t_stack *s, int e, int *eights);
+int				*get_eights(t_stack *s, int e);
 
 t_moves			*newlist(const char *move);
 int				add_move(t_moves **start, t_moves *new);
