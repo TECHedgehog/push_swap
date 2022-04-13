@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+         #
+#    By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/02 18:46:52 by ellaca-f          #+#    #+#              #
-#    Updated: 2022/04/10 11:15:36 by ellaca-f         ###   ########.fr        #
+#    Updated: 2022/04/13 12:44:25 by ellaca-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ fclean: clean
 
 re: fclean all
 
-debug: clean $(OBJS) $(LIBFT)
+debug: clean $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(DFLAGS) $(OBJS) $(HDDIRS) $(LIBFT) -o $(NAME)
 
 test: all

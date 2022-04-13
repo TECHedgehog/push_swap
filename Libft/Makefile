@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+         #
+#    By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/14 18:44:13 by ellaca-f          #+#    #+#              #
-#    Updated: 2022/04/10 11:30:29 by ellaca-f         ###   ########.fr        #
+#    Updated: 2022/04/13 12:43:35 by ellaca-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME=libft.a
 
 CC=gcc
 
-CFLAGS= -Wall -Wextra -Werror -O3
+CFLAGS= -Wall -Wextra -Werror -g -O3
 
 RM=rm -f
 

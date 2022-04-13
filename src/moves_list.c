@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/19 15:16:59 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 22:22:30 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:07:37 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	print_moves(t_moves **start)
 	}
 }
 
-void	free_list(t_moves *moves)
+int	free_list(t_moves *moves)
 {
 	void	*aux;
 
@@ -89,7 +89,9 @@ void	free_list(t_moves *moves)
 	{
 		aux = moves->next;
 		free(moves->move);
+		free(moves->prev_move);
 		free(moves);
 		moves = aux;
 	}
+	return (1);
 }

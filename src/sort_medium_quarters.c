@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_medium_quarters.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 00:32:00 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 22:11:31 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:18:15 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,5 @@ void	quarters(t_stack *a, t_stack *b, t_moves *moves, int q)
 		i = 0;
 		quarters[8] += 2;
 	}
+	free(quarters);
 }

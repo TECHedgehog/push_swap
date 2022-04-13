@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 18:00:37 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/03/03 20:43:46 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:50:23 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	find_low(t_stack *s, int l)
 
 int	free_all(t_moves *m, t_stack *a, t_stack *b, t_stack *s)
 {
-	free_list(m);
+	(void)free_list(m);
 	free_stacks(a, b, s);
 	return (0);
 }

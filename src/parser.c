@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:23:42 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/10 21:07:23 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:40:53 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ int	is_duplicated(t_stack *s)
 
 int	parse_stack(t_stack *a, t_stack *sorted, t_moves *moves)
 {
-	if (error_manager(a ,sorted) == -1)
-		return (print_error(free_all(moves, a, a->opp, sorted)));
-	if (!a || a->size <= 1)
-		return (-1);
+	//if (error_manager(a ,sorted) == -1)
+	//	return (print_error(free_all(moves, a, a->opp, sorted)));
 	if (copy_stack(a, sorted) == -1)
 		return (-1);
 	pre_sort(sorted);

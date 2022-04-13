@@ -3,14 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:57:02 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/08 13:15:10 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:38:38 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_isspace(char *str, int i)
+{
+	if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
+		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		return (1);
+	return (0);
+}
+
+void	copy_args(char **argv, t_stack *a)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 1;
+	j = 0;
+	k = 0;
+	while (argv[i])
+	{
+		if (argv[i][j] == '"')
+		{
+			while (argv[i][j++])
+			{
+				if (!ft_isspace(argv[i], j))
+			}
+			a->stack[k] = 
+		}
+	}
+}
 
 /**
  * Initialaizes two main stacks("a" & "b"). "argc" is used to know
@@ -20,8 +50,10 @@
 int	init(t_stack *a, t_stack *b, int argc, char **argv)
 {
 	int	i;
+	int	j;
 
 	i = 1;
+	j = 0;
 	a->size = argc;
 	b->size = 1;
 	a->top = 1;
@@ -36,8 +68,11 @@ int	init(t_stack *a, t_stack *b, int argc, char **argv)
 		return (-1);
 	while (i < argc)
 	{
+		if (argv[i][0] == '"')
+			a->stack[]
 		a->stack[i] = ft_atoi(argv[i]);
 		b->stack[i++] = 0;
+		copy_args(argv, a);
 	}
 	a->stack[i] = 0;
 	b->stack[i] = 0;
@@ -112,7 +147,4 @@ void	free_stacks(t_stack *a, t_stack *b, t_stack *sorted)
 	free(a->stack);
 	free(b->stack);
 	free(sorted->stack);
-	free(a);
-	free(b);
-	free(sorted);
 }

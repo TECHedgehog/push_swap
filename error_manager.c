@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves_list_utils.c                                 :+:      :+:    :+:   */
+/*   error_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/08 22:14:11 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/13 13:54:48 by ellaca-f         ###   ########.fr       */
+/*   Created: 2022/04/10 20:59:19 by ellaca-f          #+#    #+#             */
+/*   Updated: 2022/04/13 12:28:20 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	add_moves_new(t_moves *new, char *tmp, int count)
+int	num_finder(char *str)
 {
-	while (new)
-	{
-		new->count = ++count;
-		new->prev_move = ft_strdup(tmp);
-		new = new->next;
-	}
-	return (count);
+	int	i;
+
+	i = 0;
+	while (str[i++])
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+	
+	return (0);
+}
+
+int	error_manager(int argc, char **argv)
+{
+	(void)argc;
+	(void)argv;
+
+	return (0);
 }

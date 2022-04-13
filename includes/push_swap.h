@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
+/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 22:11:03 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/10 11:06:16 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/13 13:50:12 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void			print_moves(t_moves **start);
 int				add_moves_new(t_moves *new, char *tmp, int count);
 
 int				free_all(t_moves *m, t_stack *a, t_stack *b, t_stack *s);
-void			free_list(t_moves *moves);
+int				free_list(t_moves *moves);
 void			free_stacks(t_stack *a, t_stack *b, t_stack *sorted);
 #endif
