@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 22:11:03 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/13 13:50:12 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:09:05 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ int				stacklen(t_stack *s, int end);
 int				find_low(t_stack *s, int l);
 int				copy_stack(t_stack *source, t_stack *dest);
 int				is_sorted(t_stack *s, t_stack *sorted);
+int				ft_isspace(char *str, int i);
+int				has_spaces(char *argv);
+int				copy_args(char *argv, t_stack *a, int k);
+int				arg_size(char **argv, int argc);
 
 int				push(t_stack *s, t_moves *moves);
 int				swap(t_stack *s, t_moves *moves);
@@ -80,4 +84,5 @@ int				add_moves_new(t_moves *new, char *tmp, int count);
 int				free_all(t_moves *m, t_stack *a, t_stack *b, t_stack *s);
 int				free_list(t_moves *moves);
 void			free_stacks(t_stack *a, t_stack *b, t_stack *sorted);
+int				print_error(int i);
 #endif

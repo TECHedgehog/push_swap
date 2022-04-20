@@ -3,43 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:57:02 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/13 14:38:38 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:09:24 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isspace(char *str, int i)
+int	pre_init(t_stack *a, t_stack *b, int argc, char **argv)
 {
-	if (str[i] == '\t' || str[i] == '\n' || str[i] == '\v' ||
-		str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		return (1);
-	return (0);
-}
-
-void	copy_args(char **argv, t_stack *a)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	i = 1;
-	j = 0;
-	k = 0;
-	while (argv[i])
-	{
-		if (argv[i][j] == '"')
-		{
-			while (argv[i][j++])
-			{
-				if (!ft_isspace(argv[i], j))
-			}
-			a->stack[k] = 
-		}
-	}
+	a->size = arg_size(argv, argc) + 1;
+	b->size = 1;
+	a->top = 1;
+	b->top = b->size;
+	a->name = 'a';
+	b->name = 'b';
+	a->stack = malloc((a->size + 1) * sizeof(int));
+	b->stack = malloc((b->size + 1) * sizeof(int));
+	return (1);
 }
 
 /**
@@ -49,35 +32,30 @@ void	copy_args(char **argv, t_stack *a)
  **/
 int	init(t_stack *a, t_stack *b, int argc, char **argv)
 {
-	int	i;
 	int	j;
 
-	i = 1;
-	j = 0;
-	a->size = argc;
-	b->size = 1;
-	a->top = 1;
-	b->top = argc;
-	a->end = argc;
-	b->end = argc;
-	a->name = 'a';
-	b->name = 'b';
-	a->stack = malloc((argc + 1) * sizeof(int));
-	b->stack = malloc((argc + 1) * sizeof(int));
+	j = pre_init(a, b, argc, argv);
 	if (!a->stack || !b->stack)
 		return (-1);
-	while (i < argc)
+	while (a->top < a->size)
 	{
-		if (argv[i][0] == '"')
-			a->stack[]
-		a->stack[i] = ft_atoi(argv[i]);
-		b->stack[i++] = 0;
-		copy_args(argv, a);
+		if (has_spaces(argv[j]))
+			a->top = copy_args(argv[j], a, a->top);
+		else
+		{
+			a->stack[a->top] = ft_atoi(argv[j]);
+			b->stack[a->top++] = 0;
+		}
+		if (j < argc - 1)
+			j++;
 	}
-	a->stack[i] = 0;
-	b->stack[i] = 0;
+	a->end = a->top;
+	b->end = a->top;
+	a->stack[a->top] = 0;
+	b->stack[a->top] = 0;
 	a->opp = b;
 	b->opp = a;
+	a->top = 1;
 	return (0);
 }
 

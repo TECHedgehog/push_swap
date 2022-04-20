@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 20:01:59 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/13 13:49:11 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:04:57 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,12 @@ int	main(int argc, char **argv)
 	t_moves	*moves;
 
 	moves = newlist("START");
-	//if (error_manager(argc, argv) == -1)
-	//	return (print_error(free_all(moves, a, b, sorted)));
 	if (argc < 2)
-		return(free_list(moves));
+		return (free_list(moves));
 	if (init(&a, &b, argc, argv) == -1)
-		return (free_all(moves, &a, &b, &sorted));
+		return (print_error(free_all(moves, &a, &b, &sorted)));
 	if (parse_stack(&a, &sorted, moves) == -1)
-		return (free_all(moves, &a, &b, &sorted));
+		return (print_error(free_all(moves, &a, &b, &sorted)));
 	print_moves(&moves);
 	return (free_all(moves, &a, &b, &sorted));
 }
