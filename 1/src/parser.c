@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ellaca-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ellaca-f <eric@llacafeijo.es>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 19:23:42 by ellaca-f          #+#    #+#             */
-/*   Updated: 2022/04/20 16:52:32 by ellaca-f         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:53:09 by ellaca-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	is_duplicated(t_stack *s)
 	int	i;
 
 	i = 2;
-	while (i < s->size)
+	while (i < s->size + 1)
 	{
 		if (s->stack[i] == s->stack[i - 1])
 			return (1);
